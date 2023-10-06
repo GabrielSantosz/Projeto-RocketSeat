@@ -29,6 +29,8 @@ body{
     background-position: top center;
     background-size: cover;
 
+    height: 100vh;
+
 }
 
 body * {
@@ -37,7 +39,8 @@ body * {
 }
 
 #container-1{
-    width: 360px;
+    width: 100%;
+    max-width: 588px;
     margin: 56px auto 0px;
     padding: 0 24px;
 }
@@ -76,11 +79,15 @@ top: 50%;
 left: 0;
 z-index: 1;
 transform: translateY(-50%);
+animation: slide-volta 0.4s;
 }
 
 .light #switch button {
-    right: 0;
-    left: initial;
+    animation: slide 0.4s forwards;
+}
+
+#switch button:hover {
+    outline: 8px solid var(--highlight-color);
 }
 
 #switch span{
@@ -156,4 +163,36 @@ ul li a:hover{
 footer {
     padding: 24px 0;
     text-align: center;
+}
+
+/* media queries */
+
+@media (min-width: 700px) {
+    :root {
+        --bg-url:url(./assets/assets/bg-desktop.jpg);
+    }
+
+    .light {
+        --bg-url: url(./assets/assets/deskotp-light.jpg);
+    }
+}
+
+@keyframes slide{
+    from {
+        left:0;
+    }
+
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-volta{
+    from {
+        left: 50%;
+    }
+
+    to {
+        left: 0;
+    }
 }
